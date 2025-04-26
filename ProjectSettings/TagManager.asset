@@ -42,6 +42,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Plot
+    uniqueID: 3450714063
+    locked: 0
+  - name: FenceBehind
+    uniqueID: 2513128467
+    locked: 0
+  - name: Grave
+    uniqueID: 2835872719
+    locked: 0
+  - name: FenceFront
+    uniqueID: 2922153443
+    locked: 0
+  - name: Trash
+    uniqueID: 4114723447
+    locked: 0
+  - name: Background
+    uniqueID: 1269781323
+    locked: 0
   - name: SurfaceToClean
     uniqueID: 1274039933
     locked: 0

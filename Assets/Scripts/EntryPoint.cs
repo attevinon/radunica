@@ -1,27 +1,39 @@
-﻿using System;
-using Scripts;
+﻿using Scripts;
 using Scripts.Data;
-using Scripts.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
-using SurfacesController = Scripts.SurfacesController;
 
 namespace DefaultNamespace
 {
     public class EntryPoint : MonoBehaviour
-    { 
+    {
+        [SerializeField] private Surface[] _surfaces;
         [SerializeField] private SurfacesConfig _surfacesConfig;
         [SerializeField] private ItemsCounter _itemsCounter;
         [SerializeField] private ToolsController _toolsController;
-        
-        private UIController _uiController;
 
         private void Awake()
         {
-            DontDestroyOnLoad(gameObject);
-            SurfacesController.I.Initialize(_surfacesConfig, _itemsCounter, _toolsController);
+            if(IsExists())
+            {
+                DestroyImmediate(gameObject);
+                return;
+            }
+            
+            DontDestroyOnLoad(this);
+            SurfacesController.I.Initialize(_surfacesConfig, _surfaces, _itemsCounter, _toolsController);
             SceneManager.LoadScene("HUD", LoadSceneMode.Additive);
+        }
+        
+        private bool IsExists()
+        {
+            var objects = FindObjectsOfType<EntryPoint>();
+            foreach (var obj in objects)
+            {
+                if (obj != this)
+                    return true;
+            }
+            return false;
         }
     }
 }

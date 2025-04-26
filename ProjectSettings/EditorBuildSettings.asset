@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tombstone.unity
     guid: 44e9dc7080f57a1498702e668898c05a
+  - enabled: 1
+    path: Assets/Scenes/Fence.unity
+    guid: cad419044f2793f4fa102c8cbf75029b
   m_configObjects: {}

@@ -7,13 +7,9 @@ namespace Scripts
     public class ItemsCounter : MonoBehaviour
     {
         public static event Action GoalAchieved;
+        public Action OnGoalAchieved;
         private TargetItem[] _targetItems;
         private int _itemsCounter;
-
-        private void Awake()
-        {
-            DontDestroyOnLoad(gameObject);
-        }
 
         public void SetTarget(ItemTag itemTag, SurfaceType surfaceType)
         {
@@ -54,8 +50,11 @@ namespace Scripts
             item.OnDone -= OnItemDone;
             item.Destroy();
             _itemsCounter--;
-            if(_itemsCounter == 0)
+            if (_itemsCounter == 0)
+            {
                 GoalAchieved?.Invoke();
+                OnGoalAchieved?.Invoke();
+            }
         }
     }
 }

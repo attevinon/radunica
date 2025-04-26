@@ -8,11 +8,6 @@ namespace Scripts
         [SerializeField] private Tool _scrissors;
         [SerializeField] private Tool _rag;
 
-        private void Awake()
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-
         public Tool GetTool(ToolType toolType)
         {
             switch (toolType)

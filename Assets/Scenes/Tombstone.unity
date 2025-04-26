@@ -318,7 +318,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1274039933
-  m_SortingLayer: 1
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 807170599c8b4a6478a16e322d33c0d0, type: 3}
   m_Color: {r: 0.6556603, g: 0.6556603, b: 0.6556603, a: 1}
@@ -546,8 +546,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1269781323
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 807170599c8b4a6478a16e322d33c0d0, type: 3}
   m_Color: {r: 0.7529281, g: 0.7830187, b: 0.7128425, a: 1}
@@ -705,7 +705,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1758995975}
   - component: {fileID: 1758995974}
-  - component: {fileID: 1758995973}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -713,14 +712,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1758995973
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1758995972}
-  m_Enabled: 1
 --- !u!20 &1758995974
 Camera:
   m_ObjectHideFlags: 0

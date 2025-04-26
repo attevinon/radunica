@@ -8,6 +8,7 @@ namespace Scripts.UI
     {
         [SerializeField] private NextStepButton _nextStepButton;
         [SerializeField] private StartButton _startButton;
+        [SerializeField] private CanvasGroup _screensaver;
 
         private void OnEnable()
         {
@@ -21,6 +22,11 @@ namespace Scripts.UI
             _startButton.OnClicked -= SurfacesController.I.Start;
             _nextStepButton.OnClicked -= SurfacesController.I.NextStep;
             ItemsCounter.GoalAchieved -= _nextStepButton.Show;
+        }
+
+        public static void EnableScreenSaver(bool enable)
+        {
+            
         }
     }
 }

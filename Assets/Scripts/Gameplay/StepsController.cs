@@ -7,8 +7,6 @@ namespace Scripts
 {
     public class StepsController
     {
-        public event Action AllStepsDone;
-        
         private ItemsCounter _itemsCounter;
         private ToolsController _toolsController;
         private Step[] _steps;
@@ -46,9 +44,6 @@ namespace Scripts
 
         private void SetStep()
         {
-            if (_currentStep != null)
-                _toolsController.TryHideTool(_currentStep.Tool);
-            
             _currentStep = _steps[_stepIndex];
 
             if (_currentStep.Tool != ToolType.None)
@@ -56,11 +51,19 @@ namespace Scripts
                 var tool = _toolsController.GetTool(_currentStep.Tool);
                 tool.Show(() =>
                     _itemsCounter.SetTarget(_currentStep.TargetItemTag, _currentStep.SurfaceType));
+                _itemsCounter.OnGoalAchieved += HideTool;
             }
             else
             {
                 _itemsCounter.SetTarget(_currentStep.TargetItemTag, _currentStep.SurfaceType);
             }
+        }
+
+        private void HideTool()
+        {
+            _itemsCounter.OnGoalAchieved -= HideTool;
+            if (_currentStep != null)
+                _toolsController.TryHideTool(_currentStep.Tool);
         }
     }
 }

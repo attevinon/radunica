@@ -4,6 +4,7 @@
     {
         HUD,
         Game,
-        Tombstone
+        Tombstone,
+        Fence
     }
 }
