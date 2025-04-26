@@ -13,9 +13,19 @@ MonoBehaviour:
   m_Name: StepsConfig
   m_EditorClassIdentifier: 
   _steps:
-  - _targetItem: {fileID: 0}
+  - _tool: 0
     _targetItemTag: 0
     _layer: 0
-  - _targetItem: {fileID: 0}
+    _sceneName: 1
+  - _tool: 0
     _targetItemTag: 1
     _layer: 0
+    _sceneName: 1
+  - _tool: 1
+    _targetItemTag: 2
+    _layer: 1
+    _sceneName: 2
+  - _tool: 2
+    _targetItemTag: 3
+    _layer: 1
+    _sceneName: 2

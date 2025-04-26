@@ -43,3 +43,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: SurfaceToClean
+    uniqueID: 1274039933
+    locked: 0
+  - name: Item1
+    uniqueID: 223469691
+    locked: 0
+  - name: Item2
+    uniqueID: 284686421
+    locked: 0
+  - name: Item3
+    uniqueID: 373841535
+    locked: 0
+  - name: Tool
+    uniqueID: 1275505519
+    locked: 0

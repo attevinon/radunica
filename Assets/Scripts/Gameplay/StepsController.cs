@@ -1,5 +1,6 @@
 ﻿using Scripts.Data;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Scripts
 {
@@ -7,6 +8,7 @@ namespace Scripts
     {
         private ItemsCounter _itemsCounter;
         private StepsConfig _stepsConfig;
+        private ToolsController _toolsController;
         private int _stepIndex;
         private Step _currentStep;
 
@@ -21,10 +23,14 @@ namespace Scripts
             }
         }
 
-        public void Initialize(ItemsCounter itemsCounter, StepsConfig stepsConfig)
+        public void Initialize(
+            StepsConfig stepsConfig,
+            ItemsCounter itemsCounter,
+            ToolsController toolsController)
         {
             _itemsCounter = itemsCounter;
             _stepsConfig = stepsConfig;
+            _toolsController = toolsController;
         }
 
         public void Start()
@@ -54,7 +60,24 @@ namespace Scripts
         private void SetStep()
         {
             _currentStep = _stepsConfig.Steps[_stepIndex];
-            _itemsCounter.SetTarget(_currentStep.TargetItemTag, _currentStep.Layer);
+            var currentScene = SceneManager.GetActiveScene();
+            if (_currentStep.Scene.ToString() != currentScene.name)
+            {
+                //todo UI to hide transition
+                SceneManager.UnloadSceneAsync(currentScene);
+                SceneManager.LoadScene(_currentStep.Scene.ToString(), LoadSceneMode.Additive);
+            }
+
+            if (_currentStep.Tool != ToolType.None)
+            {
+                var tool = _toolsController.GetTool(_currentStep.Tool);
+                tool.Initialize(() =>
+                    _itemsCounter.SetTarget(_currentStep.TargetItemTag, _currentStep.Layer));
+            }
+            else
+            {
+                _itemsCounter.SetTarget(_currentStep.TargetItemTag, _currentStep.Layer);
+            }
         }
     }
 }

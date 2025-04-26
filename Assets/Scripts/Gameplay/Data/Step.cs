@@ -6,14 +6,14 @@ namespace Scripts.Data
     [Serializable]
     public class Step
     {
-        //[SerializeField] private Tool _tool;
-        [SerializeField] private TargetItem _targetItem;
+        [SerializeField] private ToolType _tool;
         [SerializeField] private ItemTag _targetItemTag;
         [SerializeField] private ItemLayer _layer;
+        [SerializeField] private SceneName _sceneName;
         
-        //public Tool Tool => _tool;
-        public TargetItem TargetItem => _targetItem;
+        public ToolType Tool => _tool;
         public ItemTag TargetItemTag => _targetItemTag;
         public ItemLayer Layer => _layer;
+        public SceneName Scene => _sceneName;
     }
 }

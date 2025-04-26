@@ -26,7 +26,6 @@ namespace Scripts.Input
             {
                 Vector3 mouseUpPos = _camera.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
                 Vector3 distance = mouseUpPos - _mouseDownPos;
-                Debug.Log("dist" + distance);
                 _isMouseDown = false;
 
                 if (distance.y > _minDistance)
