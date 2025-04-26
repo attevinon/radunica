@@ -31,6 +31,7 @@ namespace Scripts
         public void Show(Action onActivated)
         {
             gameObject.SetActive(true);
+            _collider.enabled = true;
             _onActivated = onActivated;
             //show animated
             //start pulsating
@@ -39,6 +40,7 @@ namespace Scripts
         public void Hide()
         {
             gameObject.SetActive(false);
+            _isInHand = false;
             transform.position = _startPosition;
         }
 
@@ -47,7 +49,7 @@ namespace Scripts
             if(!_isInHand) return;
             Vector3 mousePos = _camera.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
             mousePos.z = 0f;
-            transform.position = mousePos;
+            transform.position = mousePos + _offset;
             
             if (UnityEngine.Input.GetMouseButtonDown(0))
             {

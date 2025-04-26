@@ -5,39 +5,36 @@ using UnityEngine;
 
 namespace Scripts
 {
-    [RequireComponent(typeof(SpriteRenderer))]
-    public class Rag : Tool
+    public class Rag : Tool, IWettable
     {
-        [SerializeField] private Basin _basin;
-        [SerializeField] private Color _dryColor;
-        [SerializeField] private Color _wetColor;
+        public event Action GotWet;
+        
+        [SerializeField] protected Basin _basin;
+        [SerializeField] protected SpriteRenderer _spriteRender;
+        [SerializeField] protected Color _dryColor;
+        [SerializeField] protected Color _wetColor;
         [SerializeField] private float _recolorDuration = 0.3f;
 
-        private SpriteRenderer _spriteRender;
-        private bool _isWet;
-
-        protected override void Awake()
-        {
-            base.Awake();
-            _spriteRender = GetComponent<SpriteRenderer>();
-        }
+        protected bool _isWet;
 
         protected override void OnMouseDown()
         {
             if(_isInHand) return;
             PlaceInHand();
+            _basin.Activate();
         }
 
         private void OnEnable()
         {
+            _isWet = false;
             _spriteRender.color = _dryColor;
             _basin.OnWaterClicked += SetWet;
             _basin.Show();
         }
 
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
-            _basin.OnWaterClicked += SetWet;
+            _basin.OnWaterClicked -= SetWet;
             _basin.Hide();
         }
 
@@ -51,5 +48,10 @@ namespace Scripts
                 .Play();
             _onActivated?.Invoke();
         }
+    }
+
+    public interface IWettable
+    {
+        public event Action GotWet;
     }
 }

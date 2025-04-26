@@ -51,6 +51,11 @@ namespace Scripts
                 var tool = _toolsController.GetTool(_currentStep.Tool);
                 tool.Show(() =>
                     _itemsCounter.SetTarget(_currentStep.TargetItemTag, _currentStep.SurfaceType));
+                if (tool is IDryable dryable)
+                {
+                    dryable.Dried += _itemsCounter.DeactivateItems;
+                    _itemsCounter.ItemDone += dryable.OnDriedOut;
+                }
                 _itemsCounter.OnGoalAchieved += HideTool;
             }
             else

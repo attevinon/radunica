@@ -6,7 +6,8 @@ namespace Scripts
     public class ToolsController : MonoBehaviour
     {
         [SerializeField] private Tool _scrissors;
-        [SerializeField] private Tool _rag;
+        [SerializeField] private Rag _rag;
+        [SerializeField] private Brush _brush;
 
         public Tool GetTool(ToolType toolType)
         {
@@ -16,6 +17,8 @@ namespace Scripts
                     return _scrissors;
                 case ToolType.Rag:
                     return _rag;
+                case ToolType.Brush:
+                    return _brush;
                 default:
                     return null;
             }

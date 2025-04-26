@@ -4,6 +4,7 @@
     {
         None,
         Scrissors,
-        Rag
+        Rag,
+        Brush
     }
 }

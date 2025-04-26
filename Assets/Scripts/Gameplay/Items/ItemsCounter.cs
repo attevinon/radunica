@@ -8,6 +8,7 @@ namespace Scripts
     {
         public static event Action GoalAchieved;
         public Action OnGoalAchieved;
+        public event Action ItemDone;
         private TargetItem[] _targetItems;
         private int _itemsCounter;
 
@@ -50,10 +51,30 @@ namespace Scripts
             item.OnDone -= OnItemDone;
             item.Destroy();
             _itemsCounter--;
+            ItemDone?.Invoke();
             if (_itemsCounter == 0)
             {
+                ItemDone = null;
                 GoalAchieved?.Invoke();
                 OnGoalAchieved?.Invoke();
+            }
+        }
+
+        public void ActivateItems()
+        {
+            foreach (var item in _targetItems)
+            {
+                if(item == null || !item.isActiveAndEnabled) continue;
+                item.EnableCollider(true);
+            }
+        }
+
+        public void DeactivateItems()
+        {
+            foreach (var item in _targetItems)
+            {
+                if(item == null || !item.isActiveAndEnabled) continue;
+                item.EnableCollider(false);
             }
         }
     }

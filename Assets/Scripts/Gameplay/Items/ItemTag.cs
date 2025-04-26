@@ -6,6 +6,7 @@
         Trash,
         Vine,
         Dirt,
+        PeelingPaint,
         FakeFlower,
         Soil,
         Flower

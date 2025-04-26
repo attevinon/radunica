@@ -25,10 +25,15 @@ namespace Scripts
             OnWaterClicked?.Invoke();
         }
 
+        public void Activate()
+        {
+            _isClicked = false;
+            _collider.enabled = true;
+        }
+
         public void Show()
         {
             gameObject.SetActive(true);
-            _collider.enabled = true;
         }
 
         public void Hide()

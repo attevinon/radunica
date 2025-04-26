@@ -5,6 +5,7 @@
         HUD,
         Game,
         Tombstone,
-        Fence
+        Fence,
+        FlowerBed
     }
 }

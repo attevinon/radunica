@@ -40,3 +40,16 @@ MonoBehaviour:
     - _tool: 1
       _targetItemTag: 2
       _surfaceType: 2
+    - _tool: 2
+      _targetItemTag: 3
+      _surfaceType: 2
+    - _tool: 3
+      _targetItemTag: 4
+      _surfaceType: 2
+  - _surfaceTag: FlowerBed
+    _surfaceType: 3
+    _sceneName: 4
+    _steps:
+    - _tool: 0
+      _targetItemTag: 0
+      _surfaceType: 3
