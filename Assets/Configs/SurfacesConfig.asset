@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 641ff3c8235e421da64ee6243260c7a9, type: 3}
+  m_Name: SurfacesConfig
+  m_EditorClassIdentifier: 
+  _surfaces:
+  - _surfaceTag: Plot
+    _sceneName: 1
+    _steps:
+    - _tool: 0
+      _targetItemTag: 0
+      _surfaceType: 0
+    - _tool: 0
+      _targetItemTag: 1
+      _surfaceType: 0
+  - _surfaceTag: Tombstone
+    _sceneName: 2
+    _steps:
+    - _tool: 1
+      _targetItemTag: 2
+      _surfaceType: 1
+    - _tool: 2
+      _targetItemTag: 3
+      _surfaceType: 1
+  - _surfaceTag: Plot
+    _sceneName: 1
+    _steps: []

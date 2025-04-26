@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Scripts.Data
 {
@@ -7,13 +8,11 @@ namespace Scripts.Data
     public class Step
     {
         [SerializeField] private ToolType _tool;
-        [SerializeField] private ItemTag _targetItemTag;
-        [SerializeField] private ItemLayer _layer;
-        [SerializeField] private SceneName _sceneName;
+        [SerializeField] private ItemTag _targetItemTag; 
+        [SerializeField] private SurfaceType _surfaceType;
         
         public ToolType Tool => _tool;
         public ItemTag TargetItemTag => _targetItemTag;
-        public ItemLayer Layer => _layer;
-        public SceneName Scene => _sceneName;
+        public  SurfaceType SurfaceType => _surfaceType;
     }
 }

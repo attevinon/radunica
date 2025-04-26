@@ -19,9 +19,18 @@ namespace Scripts
             {
                 case ToolType.Scrissors:
                     return _scrissors;
+                case ToolType.Rag:
+                    return _rag;
                 default:
                     return null;
             }
+        }
+
+        public void TryHideTool(ToolType toolType)
+        {
+            Tool tool = GetTool(toolType);
+            if (tool != null)
+                tool.Hide();
         }
     }
 }

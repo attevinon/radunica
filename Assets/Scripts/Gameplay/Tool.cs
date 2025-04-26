@@ -13,6 +13,7 @@ namespace Scripts
         private bool _followMouse;
         [SerializeField] private float _tapScale;
         [SerializeField] private float _animationDuration;
+        private Vector3 _startPosition;
 
         private Collider2D _collider;
         private Action _onTakenInHand;
@@ -21,15 +22,22 @@ namespace Scripts
         private void Awake()
         {
             _collider = GetComponent<Collider2D>();
+            _startPosition = transform.position;
             gameObject.SetActive(false);
         }
 
-        public void Initialize(Action onTakenInHand)
+        public void Show(Action onTakenInHand)
         {
             gameObject.SetActive(true);
             _onTakenInHand = onTakenInHand;
             //show animated
             //start pulsating
+        }
+
+        public void Hide()
+        {
+            gameObject.SetActive(false);
+            transform.position = _startPosition;
         }
 
         private void Update()

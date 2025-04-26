@@ -4,6 +4,6 @@
     {
         HUD,
         Game,
-        Grave
+        Tombstone
     }
 }

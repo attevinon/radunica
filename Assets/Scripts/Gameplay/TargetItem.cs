@@ -2,17 +2,14 @@
 using Scripts.Animations;
 using Scripts.Input;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Scripts
 {
     [RequireComponent(typeof(Collider2D))]
     public class TargetItem : MonoBehaviour
     {
-        public event Action<TargetItem> OnDone;
-
-        [SerializeField] private ItemLayer _layer;
-        public ItemLayer Layer => _layer;
-        
+        public event Action<TargetItem> OnDone; 
         private Collider2D _collider;
         private IInputHandler _inputHandler;
         private IAnimatable _animatable;

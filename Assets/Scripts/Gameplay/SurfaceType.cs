@@ -1,9 +1,9 @@
 ﻿namespace Scripts
 {
-    public enum ItemLayer
+    public enum SurfaceType
     {
         Plot,
-        Grave,
+        Tombstone,
         Fence,
         FlowerBed,
         Dishes

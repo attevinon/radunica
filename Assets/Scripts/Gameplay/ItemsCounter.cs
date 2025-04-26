@@ -15,9 +15,9 @@ namespace Scripts
             DontDestroyOnLoad(gameObject);
         }
 
-        public void SetTarget(ItemTag itemTag, ItemLayer itemLayer)
+        public void SetTarget(ItemTag itemTag, SurfaceType surfaceType)
         {
-            _targetItems = GetItems(itemTag, itemLayer);
+            _targetItems = GetItems(itemTag, surfaceType);
             _itemsCounter = _targetItems.Length;
 
             foreach (var item in _targetItems)
@@ -29,14 +29,14 @@ namespace Scripts
             Debug.Log("Target Set, Count = " + _itemsCounter);
         }
         
-        private TargetItem[] GetItems(ItemTag itemTag, ItemLayer itemLayer)
+        private TargetItem[] GetItems(ItemTag itemTag, SurfaceType surfaceType)
         {
             List<TargetItem> items = new List<TargetItem>();
             ItemsParent[] parents = FindObjectsByType<ItemsParent>(FindObjectsSortMode.None);
 
             foreach (var parent in parents)
             {
-                if (parent.Layer != itemLayer || parent.Tag != itemTag)
+                if (parent.SurfaceType != surfaceType || parent.Tag != itemTag)
                     continue;
                 
                 foreach (Transform child in parent.transform)
