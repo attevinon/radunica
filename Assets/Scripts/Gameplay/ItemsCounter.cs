@@ -7,8 +7,6 @@ namespace Scripts
     public class ItemsCounter : MonoBehaviour
     {
         public static event Action GoalAchieved;
-    
-        private TargetItem[] _allItems;
         private TargetItem[] _targetItems;
         private int _itemsCounter;
 
@@ -30,19 +28,22 @@ namespace Scripts
             
             Debug.Log("Target Set, Count = " + _itemsCounter);
         }
-
-        //todo make class ItemsRegistry for each Scene and add all items in Lists by Tag
+        
         private TargetItem[] GetItems(ItemTag itemTag, ItemLayer itemLayer)
         {
             List<TargetItem> items = new List<TargetItem>();
-            _allItems = FindObjectsOfType<TargetItem>();
-            foreach (var item in _allItems)
+            ItemsParent[] parents = FindObjectsByType<ItemsParent>(FindObjectsSortMode.None);
+
+            foreach (var parent in parents)
             {
-                if(item.Layer != itemLayer)
+                if (parent.Layer != itemLayer || parent.Tag != itemTag)
                     continue;
                 
-                if(item.CompareTag(itemTag.ToString()))
-                    items.Add(item);
+                foreach (Transform child in parent.transform)
+                {
+                    if (child.gameObject.TryGetComponent(out TargetItem item))
+                        items.Add(item);
+                }
             }
 
             return items.ToArray();

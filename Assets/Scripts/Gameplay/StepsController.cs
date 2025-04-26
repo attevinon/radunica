@@ -36,8 +36,12 @@ namespace Scripts
         public void NextStep()
         {
             _stepIndex++;
-            if(_stepIndex == _stepsConfig.Steps.Length)
+            
+            if (_stepIndex == _stepsConfig.Steps.Length)
+            {
                 EndGame();
+                return;
+            }
             
             SetStep();
         }
