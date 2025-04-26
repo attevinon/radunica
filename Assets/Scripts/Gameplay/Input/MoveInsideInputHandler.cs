@@ -1,6 +1,7 @@
 ﻿using System;
 using Scripts.Animations;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Scripts.Input
 {
@@ -22,16 +23,33 @@ namespace Scripts.Input
             _fadeAnimation = GetComponent<FadeDuringInput>();
         }
 
-        private void OnMouseDrag()
+        private void OnMouseDown()
         {
             if(_mouseInside) return;
-            _mouseInside = true;
-            prevPos = _camera.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
+            MouseInside();
+        }
+
+        private void OnMouseEnter()
+        {
+            if(_mouseInside) return;
+            if (UnityEngine.Input.GetMouseButton(0))
+                MouseInside();
+        }
+
+        private void OnMouseUp()
+        {
+            _mouseInside = false;
         }
 
         private void OnMouseExit()
         {
             _mouseInside = false;
+        }
+
+        private void MouseInside()
+        {
+            _mouseInside = true;
+            prevPos = _camera.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
         }
 
         private void Update()

@@ -14,22 +14,24 @@ namespace Scripts
         [SerializeField] private float _tapScale;
         [SerializeField] private float _animationDuration;
         private Vector3 _startPosition;
+        private Vector3 _startScale;
 
+        protected Action _onActivated;
         private Collider2D _collider;
-        private Action _onTakenInHand;
         private Tween _animation;
-        private bool _isInHand;
-        private void Awake()
+        protected bool _isInHand;
+        protected virtual void Awake()
         {
             _collider = GetComponent<Collider2D>();
             _startPosition = transform.position;
+            _startScale = transform.localScale;
             gameObject.SetActive(false);
         }
 
-        public void Show(Action onTakenInHand)
+        public void Show(Action onActivated)
         {
             gameObject.SetActive(true);
-            _onTakenInHand = onTakenInHand;
+            _onActivated = onActivated;
             //show animated
             //start pulsating
         }
@@ -49,32 +51,30 @@ namespace Scripts
             
             if (UnityEngine.Input.GetMouseButtonDown(0))
             {
-                TryCompleteAnimation();
-                _animation = transform.DOScale(_tapScale, _animationDuration);
+                transform
+                    .DOScale(_startScale * _tapScale, _animationDuration)
+                    .Play();
             }
             else if (UnityEngine.Input.GetMouseButtonUp(0))
             {
-                TryCompleteAnimation();
-                _animation = transform.DOScale(1f, _animationDuration);
+                transform
+                    .DOScale(_startScale, _animationDuration)
+                    .Play();
             }
-        }
-        
-        private bool TryCompleteAnimation()
-        {
-            if (_animation != null && _animation.IsPlaying())
-            {
-                _animation.Complete();
-                return true;
-            }
-            return false;
         }
 
-        private void OnMouseDown()
+        protected virtual void OnMouseDown()
         {
+            if(_isInHand) return;
+            PlaceInHand();
+            _onActivated.Invoke();
+        }
+
+        protected void PlaceInHand()
+        {
+            _isInHand = true;
             _collider.enabled = false;
             _camera = Camera.main;
-            _isInHand = true;
-            _onTakenInHand.Invoke();
         }
     }
 }
