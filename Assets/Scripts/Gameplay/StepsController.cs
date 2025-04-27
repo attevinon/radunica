@@ -51,6 +51,7 @@ namespace Scripts
             {
                 var tool = _toolsController.GetTool(_currentStep.Tool);
                 tool.Show(SetTargetItems);
+                ItemSetted?.Invoke(_currentStep.TargetItemTag);
                 if (tool is IDryable dryable)
                 {
                     dryable.Dried += _itemsCounter.DeactivateItems;
@@ -61,13 +62,13 @@ namespace Scripts
             else
             {
                 SetTargetItems();
+                ItemSetted?.Invoke(_currentStep.TargetItemTag);
             }
         }
 
         private void SetTargetItems()
         {
             _itemsCounter.SetTarget(_currentStep.TargetItemTag, _currentStep.SurfaceType);
-            ItemSetted?.Invoke(_currentStep.TargetItemTag);
         }
 
         private void HideTool()

@@ -10,6 +10,7 @@ namespace Scripts
     public class CutsceneController : MonoBehaviour
     {
         public event Action StartShown;
+        public event Action EndStarted;
         public event Action EndShown;
 
         [SerializeField] private CutsceneConfig _startConfig;
@@ -41,17 +42,19 @@ namespace Scripts
             _button.onClick.RemoveListener(ProcessClick);
         }
 
-        public void ShowStartCutscene()
+        public void ShowStartCutscene(Action playTheme)
         {
             _isStart = true;
             _index = 0;
             SetText(_startConfig.Lines[_index]);
+            playTheme?.Invoke();
         }
         
         public void ShowEndCutscene()
         {
             _isEnd = true;
             _index = 0;
+            EndStarted?.Invoke();
             EnableThis(true);
             _canvasGroup
                 .DOFade(1f, _fadeDuration)

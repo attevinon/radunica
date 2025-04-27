@@ -13,6 +13,7 @@ namespace Scripts
         [SerializeField] private SurfacesConfig _surfacesConfig;
         [SerializeField] private ItemsCounter _itemsCounter;
         [SerializeField] private ToolsController _toolsController;
+        [SerializeField] private AudioManager _audioManager;
 
         private UIController _uiController;
 
@@ -45,13 +46,15 @@ namespace Scripts
             _uiController = FindObjectOfType<UIController>();
             _uiController.EndGameButtonClicked += EndThis;
             _uiController.Initialize();
-            _uiController.CutsceneController.ShowStartCutscene();
+            _uiController.CutsceneController.EndStarted += _audioManager.PlayEndTheme;
+            _uiController.CutsceneController.ShowStartCutscene(_audioManager.PlayMainTheme);
             
         }
 
         private void OnDisable()
         {
             _uiController.EndGameButtonClicked -= EndThis;
+            _uiController.CutsceneController.EndStarted -= _audioManager.PlayEndTheme;
         }
 
         private void EndThis()
