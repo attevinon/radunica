@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: StartCutsceneConfig
   m_EditorClassIdentifier: 
   _lines:
-  - Line 1
-  - Line LIne 2
-  - Line Line Line 3.....
+  - Today is Radunica...
+  - Should I come to you, Grandma?
+  - Better late than never
+  - I miss you
