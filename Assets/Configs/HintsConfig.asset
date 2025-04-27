@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bbd8ea038734dada58d37844cfbf585, type: 3}
+  m_Name: HintsConfig
+  m_EditorClassIdentifier: 
+  Hints:
+  - Tag: 0
+    HintText: pull up the weeds
+  - Tag: 1
+    HintText: remove the trash
+  - Tag: 2
+    HintText: trim the vines with scissors
+  - Tag: 3
+    HintText: wipe off the dirt with a rag
+  - Tag: 4
+    HintText: paint over peeling paint with a brush
+  - Tag: 5
+    HintText: pull up fake flowers
+  - Tag: 6
+    HintText: dig holes with a shovel
+  - Tag: 7
+    HintText: move the plants into the holes
+  - Tag: 8
+    HintText: water the plants

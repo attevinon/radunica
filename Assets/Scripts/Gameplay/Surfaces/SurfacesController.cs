@@ -9,8 +9,11 @@ namespace Scripts
     public class SurfacesController
     {
         public event Action AllDone;
+        public event Action<ItemTag> TargetItemSet;
+        public Action HideHint;
+        
+        private readonly StepsController _stepsController;
         private SurfacesConfig _surfacesConfig;
-        private StepsController _stepsController;
         private SurfaceToClean _currentSurface;
 
         private Surface[] _surfaces;
@@ -41,6 +44,7 @@ namespace Scripts
             _surfacesConfig = surfacesConfig;
             _surfaces = surfaces;
             _stepsController.Initialize(itemsCounter, toolsController);
+            _stepsController.ItemSetted += ItemSetted;
         }
 
         public void Start()
@@ -100,6 +104,7 @@ namespace Scripts
             {
                 if (surface.SurfaceType != _currentSurface.SurfaceType) continue;
                 
+                HideHint?.Invoke();
                 surface.WaitForSelection(() =>
                 {
                     ChangeScene();
@@ -112,7 +117,7 @@ namespace Scripts
 
         private void ChangeScene()
         {
-            Debug.Log("ChangeScene()");
+            HideHint?.Invoke();
             //todo UI to hide transition
             SceneManager.LoadScene(_currentSurface.SceneName.ToString(), LoadSceneMode.Additive);
             Debug.Log("SceneLoaded");
@@ -123,6 +128,7 @@ namespace Scripts
         
         private void UnloadPrevScene(Action onSceneUnloaded)
         {
+            HideHint?.Invoke();
             var scene = SceneManager.GetSceneByName(_surfacesConfig.Surfaces[_surfaceIndex - 1].SceneName.ToString());
             SceneManager.UnloadSceneAsync(scene);
             onSceneUnloaded?.Invoke();
@@ -136,9 +142,15 @@ namespace Scripts
             if(prevSurface != null)
                 prevSurface.OnCleaned();
         }
+
+        private void ItemSetted(ItemTag tag)
+        {
+            TargetItemSet?.Invoke(tag);
+        }
         
         private void EndGame()
         {
+            _stepsController.ItemSetted -= ItemSetted;
             UnloadPrevScene( () =>
             {
                 CleanPrevSurface();

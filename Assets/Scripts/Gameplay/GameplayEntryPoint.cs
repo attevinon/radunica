@@ -46,6 +46,7 @@ namespace Scripts
             _uiController.EndGameButtonClicked += EndThis;
             _uiController.Initialize();
             _uiController.CutsceneController.ShowStartCutscene();
+            
         }
 
         private void OnDisable()
@@ -55,7 +56,6 @@ namespace Scripts
 
         private void EndThis()
         {
-            Debug.Log("EndThis()");
             SceneManager.LoadScene("MainMenu");
             Destroy(_toolsController.gameObject);
             Destroy(gameObject);

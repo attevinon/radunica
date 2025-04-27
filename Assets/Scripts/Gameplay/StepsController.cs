@@ -7,6 +7,7 @@ namespace Scripts
 {
     public class StepsController
     {
+        public event Action<ItemTag> ItemSetted;
         private ItemsCounter _itemsCounter;
         private ToolsController _toolsController;
         private Step[] _steps;
@@ -49,8 +50,7 @@ namespace Scripts
             if (_currentStep.Tool != ToolType.None)
             {
                 var tool = _toolsController.GetTool(_currentStep.Tool);
-                tool.Show(() =>
-                    _itemsCounter.SetTarget(_currentStep.TargetItemTag, _currentStep.SurfaceType));
+                tool.Show(SetTargetItems);
                 if (tool is IDryable dryable)
                 {
                     dryable.Dried += _itemsCounter.DeactivateItems;
@@ -60,8 +60,14 @@ namespace Scripts
             }
             else
             {
-                _itemsCounter.SetTarget(_currentStep.TargetItemTag, _currentStep.SurfaceType);
+                SetTargetItems();
             }
+        }
+
+        private void SetTargetItems()
+        {
+            _itemsCounter.SetTarget(_currentStep.TargetItemTag, _currentStep.SurfaceType);
+            ItemSetted?.Invoke(_currentStep.TargetItemTag);
         }
 
         private void HideTool()
