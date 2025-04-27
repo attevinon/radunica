@@ -20,13 +20,6 @@ MonoBehaviour:
     - _tool: 0
       _targetItemTag: 0
       _surfaceType: 0
-  - _surfaceTag: Tombstone
-    _surfaceType: 1
-    _sceneName: 2
-    _steps:
-    - _tool: 1
-      _targetItemTag: 2
-      _surfaceType: 1
   - _surfaceTag: FlowerBed
     _surfaceType: 3
     _sceneName: 4

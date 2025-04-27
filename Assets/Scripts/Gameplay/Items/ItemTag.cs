@@ -9,6 +9,7 @@
         PeelingPaint,
         FakeFlower,
         Soil,
-        Flower
+        FlowerToPlace,
+        FlowerToWater
     }
 }

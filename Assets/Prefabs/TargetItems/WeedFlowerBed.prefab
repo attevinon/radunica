@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2152318487386644260}
   - component: {fileID: 1676702696131270182}
   - component: {fileID: 2161101637044796441}
+  - component: {fileID: 2986954059352631541}
   m_Layer: 0
   m_Name: WeedFlowerBed
   m_TagString: Untagged
@@ -174,3 +175,15 @@ MonoBehaviour:
   _moveDuration: 0.8
   _fadeDuration: 0.3
   _fadeDelay: 0.5
+--- !u!114 &2986954059352631541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7396994870903013892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4d19672b4e4d3a83af9edb77543189, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

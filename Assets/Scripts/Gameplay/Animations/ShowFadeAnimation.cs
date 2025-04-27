@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Scripts.Animations
 {
+    [RequireComponent(typeof(SpriteRenderer))]
     public class ShowFadeAnimation : MonoBehaviour, IAnimatable
     {
         [SerializeField] private SpriteRenderer _selectionCircle;
