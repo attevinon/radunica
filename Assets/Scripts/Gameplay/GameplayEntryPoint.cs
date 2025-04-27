@@ -1,16 +1,20 @@
-﻿using Scripts;
+﻿using System;
+using System.Collections.Generic;
 using Scripts.Data;
+using Scripts.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace DefaultNamespace
+namespace Scripts
 {
-    public class EntryPoint : MonoBehaviour
+    public class GameplayEntryPoint : MonoBehaviour
     {
         [SerializeField] private Surface[] _surfaces;
         [SerializeField] private SurfacesConfig _surfacesConfig;
         [SerializeField] private ItemsCounter _itemsCounter;
         [SerializeField] private ToolsController _toolsController;
+
+        private UIController _uiController;
 
         private void Awake()
         {
@@ -27,13 +31,34 @@ namespace DefaultNamespace
         
         private bool IsExists()
         {
-            var objects = FindObjectsOfType<EntryPoint>();
+            var objects = FindObjectsOfType<GameplayEntryPoint>();
             foreach (var obj in objects)
             {
                 if (obj != this)
                     return true;
             }
             return false;
+        }
+
+        private void Start()
+        {
+            _uiController = FindObjectOfType<UIController>();
+            _uiController.EndGameButtonClicked += EndThis;
+            _uiController.Initialize();
+            _uiController.CutsceneController.ShowStartCutscene();
+        }
+
+        private void OnDisable()
+        {
+            _uiController.EndGameButtonClicked -= EndThis;
+        }
+
+        private void EndThis()
+        {
+            Debug.Log("EndThis()");
+            SceneManager.LoadScene("MainMenu");
+            Destroy(_toolsController.gameObject);
+            Destroy(gameObject);
         }
     }
 }

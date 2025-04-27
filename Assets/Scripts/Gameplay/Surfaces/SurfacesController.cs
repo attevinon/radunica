@@ -8,6 +8,7 @@ namespace Scripts
 {
     public class SurfacesController
     {
+        public event Action AllDone;
         private SurfacesConfig _surfacesConfig;
         private StepsController _stepsController;
         private SurfaceToClean _currentSurface;
@@ -138,7 +139,12 @@ namespace Scripts
         
         private void EndGame()
         {
-            Debug.Log("Good Job!");
+            UnloadPrevScene( () =>
+            {
+                CleanPrevSurface();
+                Debug.Log("Good Job!");
+                AllDone?.Invoke();
+            });
         }
     }
 }

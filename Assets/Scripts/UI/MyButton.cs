@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
-public class NextStepButton : MonoBehaviour
+public class MyButton : MonoBehaviour
 {
     public event Action OnClicked;
     private Button _button;
@@ -25,8 +25,8 @@ public class NextStepButton : MonoBehaviour
 
     private void OnClick()
     {
-        Hide();
         OnClicked?.Invoke();
+        Hide();
     }
 
     public void Show()
