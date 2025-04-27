@@ -46,8 +46,19 @@ namespace Scripts
                 
                 foreach (Transform child in parent.transform)
                 {
-                    if (child.gameObject.TryGetComponent(out TargetItem item))
+                    if (child.gameObject.TryGetComponent(out TargetItem item)
+                        && item.ItemTag == itemTag)
                         items.Add(item);
+
+                    if (itemTag != ItemTag.FlowerToPlace
+                        && itemTag != ItemTag.FlowerToWater) continue;
+                    
+                    foreach (Transform childChild in child)
+                    {
+                        if (childChild.gameObject.TryGetComponent(out TargetItem childItem)
+                            && childItem.ItemTag == itemTag)
+                            items.Add(childItem);
+                    }
                 }
             }
 

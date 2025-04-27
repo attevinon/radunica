@@ -27,12 +27,12 @@ MonoBehaviour:
     - _tool: 0
       _targetItemTag: 5
       _surfaceType: 3
-    - _tool: 0
-      _targetItemTag: 0
-      _surfaceType: 3
     - _tool: 4
       _targetItemTag: 6
       _surfaceType: 3
     - _tool: 0
       _targetItemTag: 7
+      _surfaceType: 3
+    - _tool: 5
+      _targetItemTag: 8
       _surfaceType: 3

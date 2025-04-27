@@ -10,5 +10,10 @@ namespace Scripts
 
         public ItemTag Tag => _tag;
         public SurfaceType SurfaceType => _surfaceType;
+
+        public void ChangeTag(ItemTag newTag)
+        {
+            _tag = newTag;
+        }
     }
 }

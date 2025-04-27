@@ -8,15 +8,9 @@ namespace Scripts.Animations
     {
         [SerializeField] private float _scaled = 1.1f;
         [SerializeField] private float _scaleDuration = 1f;
-        private Vector3 _startScale;
         private bool _isInAnimation;
-        
-        private void Awake()
-        {
-            _startScale = transform.localScale;
-        }
 
-        public void Animate(Action callback)
+        public virtual void Animate(Action callback)
         {
             if(_isInAnimation) return;
             _isInAnimation = true;

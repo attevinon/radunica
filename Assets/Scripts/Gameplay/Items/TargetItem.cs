@@ -10,6 +10,10 @@ namespace Scripts
     public class TargetItem : MonoBehaviour
     {
         public event Action<TargetItem> OnDone; 
+        
+        [SerializeField] private ItemTag _itemTag;
+        public ItemTag ItemTag => _itemTag;
+        
         private Collider2D _collider;
         private IInputHandler _inputHandler;
         private IAnimatable _animatable;

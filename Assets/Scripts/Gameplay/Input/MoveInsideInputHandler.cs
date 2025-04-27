@@ -9,18 +9,18 @@ namespace Scripts.Input
     {
         public event Action Done;
         
-        private float _treshhold = 0.1f;
-        private float _targetMovesAmount = 10f;
+        [SerializeField] private float _treshhold = 0.1f;
+        [SerializeField] private float _targetMovesAmount = 10f;
         private float _movesAmount;
         private bool _mouseInside;
         private Vector3 prevPos;
         private Camera _camera;
-        private FadeDuringInput _fadeAnimation;
+        private IAnimatableDuringInput _animation;
 
         private void Awake()
         {
             _camera = Camera.main;
-            _fadeAnimation = GetComponent<FadeDuringInput>();
+            _animation = GetComponent<IAnimatableDuringInput>();
         }
 
         private void OnMouseDown()
@@ -73,7 +73,7 @@ namespace Scripts.Input
                 }
 
                 float progress = _movesAmount / _targetMovesAmount;
-                _fadeAnimation.Fade(progress);
+                _animation.AnimateDuringInput(progress);
             }
         }
     }

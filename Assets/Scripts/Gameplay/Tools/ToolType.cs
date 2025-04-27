@@ -6,6 +6,7 @@
         Scrissors,
         Rag,
         Brush,
-        Shovel
+        Shovel,
+        WateringCan
     }
 }

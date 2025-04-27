@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Scripts.Animations
 {
     [RequireComponent(typeof(SpriteRenderer))]
-    public class FadeDuringInput : MonoBehaviour, IAnimatable
+    public class FadeDuringInput : MonoBehaviour, IAnimatableDuringInput
     {
         private SpriteRenderer _spriteRender;
         private float _startAlpha;
@@ -17,7 +17,7 @@ namespace Scripts.Animations
             _startAlpha = _spriteRender.color.a;
         }
 
-        public void Fade(float progress)
+        public void AnimateDuringInput(float progress)
         {
             Color color = _spriteRender.color;
             float alpha = Mathf.Lerp(_startAlpha, 0f, progress);
