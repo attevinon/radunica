@@ -35,17 +35,16 @@ namespace Scripts
         public void EnableCollider(bool enable)
         {
             _collider.enabled = enable;
+            if(_animatable is ShowFadeAnimation show)
+            {
+                show.ShowCircle();
+            }
         }
 
         private void OnInputDone()
         {
             _collider.enabled = false;
             _animatable.Animate(() => OnDone?.Invoke(this));
-        }
-        
-        public void Destroy()
-        {
-            Destroy(gameObject);
         }
     }
 }

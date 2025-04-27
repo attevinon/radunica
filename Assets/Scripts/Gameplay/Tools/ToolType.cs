@@ -5,6 +5,7 @@
         None,
         Scrissors,
         Rag,
-        Brush
+        Brush,
+        Shovel
     }
 }

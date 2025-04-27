@@ -46,7 +46,6 @@ namespace Scripts
         {
             _surfaceIndex = 0;
             SetSurface();
-            Debug.Log("SetSurface();");
         }
 
         public void NextStep()
@@ -55,12 +54,12 @@ namespace Scripts
             if (!result)
             {
                 NextSurface();
-                Debug.Log("NextSurface();");
             }
         }
 
         private void NextSurface()
         {
+            Debug.Log("NextSurface();");
             _surfaceIndex++;
             if (_surfaceIndex == _surfacesConfig.Surfaces.Length)
             {
@@ -69,11 +68,11 @@ namespace Scripts
             }
             
             SetSurface();
-            Debug.Log("SetSurface();");
         }
 
         private void SetSurface()
         {
+            Debug.Log("SetSurface();");
             _currentSurface = _surfacesConfig.Surfaces[_surfaceIndex];
             
             if (_currentSurface.SceneName != SceneName.Game
@@ -112,20 +111,13 @@ namespace Scripts
 
         private void ChangeScene()
         {
-            var currentScene = SceneManager.GetActiveScene();
-            if (_currentSurface.SceneName.ToString() != currentScene.name)
-            {
-                //todo UI to hide transition
-                if (currentScene.name != SceneName.Game.ToString())
-                {
-                    SceneManager.UnloadSceneAsync(currentScene);
-                }
-                SceneManager.LoadScene(_currentSurface.SceneName.ToString(), LoadSceneMode.Additive);
-                if (_currentSurface.SceneName == SceneName.Game)
-                    CleanPrevSurface();
-
-                //hide black screen
-            }
+            Debug.Log("ChangeScene()");
+            //todo UI to hide transition
+            SceneManager.LoadScene(_currentSurface.SceneName.ToString(), LoadSceneMode.Additive);
+            Debug.Log("SceneLoaded");
+            if (_currentSurface.SceneName == SceneName.Game)
+                CleanPrevSurface();
+            //hide black screen
         }
         
         private void UnloadPrevScene(Action onSceneUnloaded)

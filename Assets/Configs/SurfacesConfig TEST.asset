@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 641ff3c8235e421da64ee6243260c7a9, type: 3}
-  m_Name: SurfacesConfig
+  m_Name: SurfacesConfig TEST
   m_EditorClassIdentifier: 
   _surfaces:
   - _surfaceTag: Plot
@@ -20,9 +20,6 @@ MonoBehaviour:
     - _tool: 0
       _targetItemTag: 0
       _surfaceType: 0
-    - _tool: 0
-      _targetItemTag: 1
-      _surfaceType: 0
   - _surfaceTag: Tombstone
     _surfaceType: 1
     _sceneName: 2
@@ -30,22 +27,6 @@ MonoBehaviour:
     - _tool: 1
       _targetItemTag: 2
       _surfaceType: 1
-    - _tool: 2
-      _targetItemTag: 3
-      _surfaceType: 1
-  - _surfaceTag: Fence
-    _surfaceType: 2
-    _sceneName: 3
-    _steps:
-    - _tool: 1
-      _targetItemTag: 2
-      _surfaceType: 2
-    - _tool: 2
-      _targetItemTag: 3
-      _surfaceType: 2
-    - _tool: 3
-      _targetItemTag: 4
-      _surfaceType: 2
   - _surfaceTag: FlowerBed
     _surfaceType: 3
     _sceneName: 4

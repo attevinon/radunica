@@ -8,6 +8,7 @@ namespace Scripts
         [SerializeField] private Tool _scrissors;
         [SerializeField] private Rag _rag;
         [SerializeField] private Brush _brush;
+        [SerializeField] private Tool _shovel;
 
         public Tool GetTool(ToolType toolType)
         {
@@ -19,6 +20,8 @@ namespace Scripts
                     return _rag;
                 case ToolType.Brush:
                     return _brush;
+                case ToolType.Shovel:
+                    return _shovel;
                 default:
                     return null;
             }
