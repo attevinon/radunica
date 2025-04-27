@@ -39,7 +39,7 @@ namespace Scripts
                     _audioSource.loop = false;
                     _audioSource.clip = _endTheme;
                     _audioSource.volume = 1f;
-                    _audioSource.PlayDelayed(1f);
+                    _audioSource.PlayDelayed(0.4f);
                 })
                 .Play();
 
