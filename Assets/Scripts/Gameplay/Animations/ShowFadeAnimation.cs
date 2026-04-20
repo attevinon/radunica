@@ -15,6 +15,9 @@ namespace Scripts.Animations
         private void Awake()
         {
             _spriteRender = GetComponent<SpriteRenderer>();
+            Color color = _spriteRender.color;
+            color.a = 0;
+            _spriteRender.color = color;
             _selectionCircle.gameObject.SetActive(false);
         }
 

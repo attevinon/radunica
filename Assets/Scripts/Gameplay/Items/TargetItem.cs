@@ -12,6 +12,7 @@ namespace Scripts
         public event Action<TargetItem> OnDone; 
         
         [SerializeField] private ItemTag _itemTag;
+        [SerializeField] private ParticleSystem _shineParticles;
         public ItemTag ItemTag => _itemTag;
         
         private Collider2D _collider;
@@ -48,6 +49,7 @@ namespace Scripts
         private void OnInputDone()
         {
             _collider.enabled = false;
+            //_shineParticles.Play();
             _animatable.Animate(() => OnDone?.Invoke(this));
         }
     }

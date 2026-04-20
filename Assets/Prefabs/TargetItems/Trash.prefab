@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6142689605667037863}
   - component: {fileID: 3256615103772219209}
   - component: {fileID: 1309779173740289088}
-  - component: {fileID: 3746322895419485306}
+  - component: {fileID: 100867455898811065}
   - component: {fileID: 7753139907750539780}
   m_Layer: 6
   m_Name: Trash
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -1459094577
   m_SortingLayer: 3
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1294452451, guid: b72827a82aea4304f8d5a442a2649541, type: 3}
+  m_Sprite: {fileID: -1590054153, guid: 78c4ce3829dd4844db488503e4539767, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -124,7 +124,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.95, y: 0.45}
+    oldSize: {x: 1.1216216, y: 0.49324325}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemTag: 1
---- !u!114 &3746322895419485306
+--- !u!114 &100867455898811065
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,10 +155,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 974840408246355488}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4affe272f4ff404c99c191746287119c, type: 3}
+  m_Script: {fileID: 11500000, guid: e52fcd7d91f2414db3ada8ea7d730fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minDistance: 0
 --- !u!114 &7753139907750539780
 MonoBehaviour:
   m_ObjectHideFlags: 0
