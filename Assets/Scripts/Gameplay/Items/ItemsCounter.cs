@@ -7,6 +7,7 @@ namespace Scripts
 {
     public class ItemsCounter : MonoBehaviour
     {
+        private const float DELAY_BEFORE_INVOKE_GOAL_ACHIEVED = 0.5f;
         public static event Action GoalAchieved;
         public Action OnGoalAchieved;
         public event Action ItemDone;
@@ -76,8 +77,8 @@ namespace Scripts
             if (_itemsCounter == 0)
             {
                 ItemDone = null;
-                GoalAchieved?.Invoke();
                 OnGoalAchieved?.Invoke();
+                StartCoroutine(InvokeGoalAchievedWithDelay());
             }
         }
 
@@ -98,6 +99,12 @@ namespace Scripts
                 item.OnDone -= OnItemDone;
                 item.EnableCollider(false);
             }
+        }
+        
+        private IEnumerator InvokeGoalAchievedWithDelay()
+        {
+            yield return new WaitForSeconds(DELAY_BEFORE_INVOKE_GOAL_ACHIEVED);
+            GoalAchieved?.Invoke();
         }
     }
 }
