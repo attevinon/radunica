@@ -64,7 +64,7 @@ namespace Scripts
 
         private void NextSurface()
         {
-            Debug.Log("NextSurface();");
+            //Debug.Log("NextSurface();");
             _surfaceIndex++;
             if (_surfaceIndex == _surfacesConfig.Surfaces.Length)
             {
@@ -154,7 +154,7 @@ namespace Scripts
             UnloadPrevScene( () =>
             {
                 CleanPrevSurface();
-                Debug.Log("Good Job!");
+                //Debug.Log("Good Job!");
                 AllDone?.Invoke();
             });
         }

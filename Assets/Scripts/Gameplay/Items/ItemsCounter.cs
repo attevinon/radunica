@@ -71,6 +71,7 @@ namespace Scripts
             if(item.gameObject.TryGetComponent(out DestroyableItem destroyable))
                 destroyable.Destroy();
             _itemsCounter--;
+            //Debug.Log($"_itemsCounter={_itemsCounter} OnItemDone", item);
             ItemDone?.Invoke();
             if (_itemsCounter == 0)
             {
@@ -94,6 +95,7 @@ namespace Scripts
             foreach (var item in _targetItems)
             {
                 if(item == null || !item.isActiveAndEnabled) continue;
+                item.OnDone -= OnItemDone;
                 item.EnableCollider(false);
             }
         }
