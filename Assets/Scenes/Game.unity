@@ -7384,7 +7384,7 @@ MonoBehaviour:
   - {fileID: 717832106}
   - {fileID: 391378931}
   - {fileID: 1738657290}
-  _surfacesConfig: {fileID: 11400000, guid: 296f815de1608e3449b67aee63058c65, type: 2}
+  _surfacesConfig: {fileID: 11400000, guid: c13874d63efc50044a6cf74336c7475a, type: 2}
   _itemsCounter: {fileID: 793751513}
   _toolsController: {fileID: 181274131}
   _audioManager: {fileID: 1267439521}
