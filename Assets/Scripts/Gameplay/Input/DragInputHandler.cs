@@ -8,6 +8,7 @@ namespace Scripts.Input
         public event Action Done;
 
         [SerializeField] private float _minDistance;
+        [SerializeField] private AudioSource _audioSource;
         
         private Camera _camera;
         private Vector3 _mouseDownPos;
@@ -29,7 +30,10 @@ namespace Scripts.Input
                 _isMouseDown = false;
 
                 if (distance.y > _minDistance)
+                {
+                    _audioSource.Play();
                     Done?.Invoke();
+                }
             }
         }
 

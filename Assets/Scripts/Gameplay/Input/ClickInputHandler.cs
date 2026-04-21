@@ -1,11 +1,12 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace Scripts.Input
 {
     public class ClickInputHandler : MonoBehaviour, IInputHandler
-    {
+    { 
+        [SerializeField] private AudioSource _releasedAudioSource;
+
         public event Action Done;
         private bool _isMousePressed;
 
@@ -16,7 +17,12 @@ namespace Scripts.Input
 
         private void OnMouseUp()
         {
-            if(!_isMousePressed) return;
+            if(!_isMousePressed)
+                return;
+            
+            if(_releasedAudioSource != null) 
+                _releasedAudioSource.Play();
+            
             Done?.Invoke();
         }
     }

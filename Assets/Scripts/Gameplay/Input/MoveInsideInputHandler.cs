@@ -11,6 +11,8 @@ namespace Scripts.Input
         
         [SerializeField] private float _treshhold = 0.1f;
         [SerializeField] private float _targetMovesAmount = 10f;
+        [SerializeField] private AudioSource _audioSource;
+        
         private float _movesAmount;
         private bool _mouseInside;
         private Vector3 prevPos;
@@ -44,17 +46,24 @@ namespace Scripts.Input
         private void OnMouseExit()
         {
             _mouseInside = false;
+            if(_audioSource != null)
+                _audioSource.Stop();
         }
 
         private void MouseInside()
         {
             _mouseInside = true;
             prevPos = _camera.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
+            
+            if(_audioSource != null) 
+                _audioSource.Play();
         }
 
         private void Update()
         {
-            if(!_mouseInside) return;
+            if(!_mouseInside)
+                return;
+            
             Vector3 mousePos = _camera.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
             Vector3 distance = mousePos - prevPos;
             float absX = Mathf.Abs(distance.x);

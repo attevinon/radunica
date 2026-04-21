@@ -50,18 +50,15 @@ namespace Scripts
             Vector3 mousePos = _camera.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
             mousePos.z = 0f;
             transform.position = mousePos + _offset;
+            transform.DOKill();
             
             if (UnityEngine.Input.GetMouseButtonDown(0))
             {
-                transform
-                    .DOScale(_startScale * _tapScale, _animationDuration)
-                    .Play();
+                HandleInteractionStart();
             }
             else if (UnityEngine.Input.GetMouseButtonUp(0))
             {
-                transform
-                    .DOScale(_startScale, _animationDuration)
-                    .Play();
+                HandleInteractionEnd();
             }
         }
 
@@ -70,6 +67,20 @@ namespace Scripts
             if(_isInHand) return;
             PlaceInHand();
             _onActivated.Invoke();
+        }
+
+        protected virtual void HandleInteractionStart()
+        {
+            transform
+                .DOScale(_startScale * _tapScale, _animationDuration)
+                .Play();
+        }
+        
+        protected virtual void HandleInteractionEnd()
+        {
+            transform
+                .DOScale(_startScale, _animationDuration)
+                .Play();
         }
 
         protected void PlaceInHand()

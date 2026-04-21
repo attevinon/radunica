@@ -12,6 +12,9 @@ namespace Scripts.Input
         [SerializeField] private Transform[] placesToPut;
         [SerializeField] private float radius = 0.5f;
         [SerializeField] private float _moveDuration = 0.3f;
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip _takeSound;
+        [SerializeField] private AudioClip _placeSound;
 
         private bool _isThisInHand;
         private Camera _camera;
@@ -25,19 +28,26 @@ namespace Scripts.Input
         
         private void OnMouseDown()
         {
-            if(_isInHand) return;
+            if(_isInHand)
+                return;
+            
             _camera = Camera.main;
             _isInHand = true;
             _isThisInHand = true;
+            _audioSource.PlayOneShot(_takeSound);
         }
 
         private void OnMouseUp()
         {
-            if(!_isThisInHand) return;
+            if(!_isThisInHand)
+                return;
+            
             Vector3 mousePos = _camera.ScreenToWorldPoint(UnityEngine.Input.mousePosition);
             foreach (var place in placesToPut)
             {
-                if(place == null) continue;
+                if(place == null)
+                    continue;
+                
                 Vector3 distance = mousePos - place.position;
                 float absX = Mathf.Abs(distance.x);
                 float absY = Mathf.Abs(distance.y);
@@ -50,6 +60,8 @@ namespace Scripts.Input
                         .SetLink(gameObject)
                         .OnComplete(() => Destroy(place.gameObject))
                         .Play();
+                    
+                    _audioSource.PlayOneShot(_placeSound);
                     _isInHand = false;
                     _isThisInHand = false;
                     return;

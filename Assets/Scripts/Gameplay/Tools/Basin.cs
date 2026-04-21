@@ -6,6 +6,7 @@ namespace Scripts
     [RequireComponent(typeof(Collider2D))]
     public class Basin : MonoBehaviour
     {
+        [SerializeField] AudioSource _audioSource;
         public event Action OnWaterClicked;
 
         private Collider2D _collider;
@@ -22,6 +23,7 @@ namespace Scripts
             if(_isClicked) return;
             _collider.enabled = false;
             _isClicked = true;
+            _audioSource.Play();
             OnWaterClicked?.Invoke();
         }
 

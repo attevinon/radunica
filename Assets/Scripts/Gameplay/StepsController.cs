@@ -1,4 +1,5 @@
 ﻿using System;
+using Scripts.Audio;
 using Scripts.Data;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -57,6 +58,7 @@ namespace Scripts
                     dryable.Dried += _itemsCounter.DeactivateItems;
                     _itemsCounter.ItemDone += dryable.OnDriedOut;
                 }
+
                 _itemsCounter.OnGoalAchieved += HideTool;
             }
             else
@@ -64,11 +66,18 @@ namespace Scripts
                 SetTargetItems();
                 ItemSetted?.Invoke(_currentStep.TargetItemTag);
             }
+            _itemsCounter.OnGoalAchieved += HandleStepCompleted;
         }
 
         private void SetTargetItems()
         {
             _itemsCounter.SetTarget(_currentStep.TargetItemTag, _currentStep.SurfaceType);
+        }
+
+        private void HandleStepCompleted()
+        {
+            _itemsCounter.OnGoalAchieved -= HandleStepCompleted;
+            AudioManager.Instance.PlaySoundEffect(SoundEffectType.STEP_COMPLETED);
         }
 
         private void HideTool()
