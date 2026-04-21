@@ -24,7 +24,7 @@ namespace Scripts
             _basin.Activate();
         }
 
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             _isWet = false;
             _spriteRender.color = _dryColor;
@@ -38,7 +38,7 @@ namespace Scripts
             _basin.Hide();
         }
 
-        private void SetWet()
+        protected virtual void SetWet()
         {
             if(_isWet) return;
             _isWet = true;
