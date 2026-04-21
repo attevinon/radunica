@@ -1,13 +1,15 @@
 ﻿using System;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Scripts
 {
     [RequireComponent(typeof(Collider2D))]
     public class Surface : MonoBehaviour
     {
-        [SerializeField] private GameObject[] _itemsPresentations;
+        [SerializeField] private GameObject[] _itemsPresentations; 
+        [SerializeField] private GameObject[] _itemsShowAfterCleaning;
         [SerializeField] private SurfaceType _surfaceType;
 
         [SerializeField] private float _scaleDuration = 0.5f;
@@ -32,6 +34,14 @@ namespace Scripts
             foreach (var presentation in _itemsPresentations)
             {
                 Destroy(presentation);
+            }
+
+            if (_itemsShowAfterCleaning != null && _itemsShowAfterCleaning.Length > 0)
+            {
+                foreach (var item in _itemsShowAfterCleaning)
+                {
+                    item.gameObject.SetActive(true);
+                }
             }
         }
 
