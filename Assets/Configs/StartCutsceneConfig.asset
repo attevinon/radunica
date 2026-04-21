@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: StartCutsceneConfig
   m_EditorClassIdentifier: 
   _lines:
-  - Today is Radunica...
-  - Should I come to you, Grandma?
-  - Better late than never
-  - I miss you
+  - Oh, it's Thuesday already!
+  - It's good that today is a day off because of Radunica.
+  - But...
+  - what do even people do on this day?
+  - Should I v...
+  - Should I visit you, grandma?
+  - Better late than never I guess...
+  - I think I miss you

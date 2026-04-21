@@ -14,20 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hints:
   - Tag: 0
-    HintText: pull up the weeds
+    HintText: Pull up weeds
   - Tag: 1
-    HintText: remove the trash
+    HintText: Clear trash
   - Tag: 2
-    HintText: trim the vines with scissors
+    HintText: Trim vines with scissors
   - Tag: 3
-    HintText: wipe off the dirt with a rag
+    HintText: Wipe dirt with a sponge
   - Tag: 4
-    HintText: paint over peeling paint with a brush
+    HintText: Paint over peeling spots
   - Tag: 5
-    HintText: pull up fake flowers
+    HintText: Remove fake flowers
   - Tag: 6
-    HintText: dig holes with a shovel
+    HintText: Dig holes with a shovel
   - Tag: 7
-    HintText: move the plants into the holes
+    HintText: Place plants in holes
   - Tag: 8
-    HintText: water the plants
+    HintText: Water plants

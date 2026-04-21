@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: EndCutsceneConfig
   m_EditorClassIdentifier: 
   _lines:
-  - '"My child"'
-  - '"You''re not suppused to be sad on this day"'
-  - '"You should be happy that I''m in the better place"'
-  - '"Thank you for visit"'
-  - '"This place Is much better now :)"'
-  - '"I love you child"'
+  - '"My child,"'
+  - '"you''re not supposed to be sad on this day"'
+  - '"You should be happy that I''m in a better place"'
+  - '"and I can whatch you and help you even from here"'
+  - '"Thank you for visiting"'
+  - '"This place is much better now"'
+  - '"I love you, my child"'
   - '"It''s a pity you can''t hear me..."'
