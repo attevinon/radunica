@@ -1098,6 +1098,7 @@ MonoBehaviour:
   - {fileID: 1809555353}
   - {fileID: 941770135}
   - {fileID: 1214826919}
+  _itemsShowAfterCleaning: []
   _surfaceType: 2
   _scaleDuration: 0.5
   _animatedScale: {x: 0, y: 0.02, z: 0}
@@ -1682,6 +1683,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemsPresentations:
   - {fileID: 90646602}
+  _itemsShowAfterCleaning: []
   _surfaceType: 1
   _scaleDuration: 0.5
   _animatedScale: {x: 0.1, y: 0.1, z: 0}
@@ -9129,6 +9131,8 @@ MonoBehaviour:
   _itemsPresentations:
   - {fileID: 1111305694}
   - {fileID: 1881069544}
+  _itemsShowAfterCleaning:
+  - {fileID: 1513762757}
   _surfaceType: 3
   _scaleDuration: 0.5
   _animatedScale: {x: 0.1, y: 0.1, z: 1}
