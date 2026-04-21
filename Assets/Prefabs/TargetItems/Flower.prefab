@@ -401,7 +401,7 @@ MonoBehaviour:
   _moveDuration: 0.3
   _audioSource: {fileID: 2611729862015595475}
   _takeSound: {fileID: 8300000, guid: eaf8c4ff2c3ba7a3dac2e34fb300a09a, type: 3}
-  _placeSound: {fileID: 8300000, guid: 32f51d5a9b3358d1ea58f4dc3876817e, type: 3}
+  _placeSound: {fileID: 8300000, guid: 6994722157c02c825ac0b6fea74a47ad, type: 3}
 --- !u!114 &6369215955625980712
 MonoBehaviour:
   m_ObjectHideFlags: 0
